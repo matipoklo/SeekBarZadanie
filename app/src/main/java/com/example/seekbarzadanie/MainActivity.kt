@@ -30,6 +30,32 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        //Deklaracja obrazków
+        val o1 = findViewById<ImageView>(R.id.obraz1)
+        val o2 = findViewById<ImageView>(R.id.obraz2)
+        val o3 = findViewById<ImageView>(R.id.obraz3)
 
+        val o1_poziom = findViewById<SeekBar>(R.id.SeekPoziom1)
+        val o2_poziom = findViewById<SeekBar>(R.id.SeekPoziom3)
+        val o3_poziom = findViewById<SeekBar>(R.id.SeekPoziom2)
+
+        val o1_pion = findViewById<SeekBar>(R.id.SeekPion1)
+        val o2_pion = findViewById<SeekBar>(R.id.SeekPion2)
+        val o3_pion = findViewById<SeekBar>(R.id.SeekPion3)
+
+        val reset = findViewById<Button>(R.id.btnReset)
+
+        val progress_poziom = findViewById<ProgressBar>(R.id.progressPoziom)
+        val progress_pion = findViewById<ProgressBar>(R.id.progressPion)
+
+        reset.setOnClickListener(){
+            o1_pion.progress = 100
+            o2_pion.progress = 100
+            o3_pion.progress = 100
+
+            o1_poziom.progress = 100
+            o2_poziom.progress = 100
+            o3_poziom.progress = 100
+        }
     }
 }
