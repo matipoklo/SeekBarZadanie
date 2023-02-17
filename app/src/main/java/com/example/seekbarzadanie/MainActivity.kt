@@ -50,13 +50,13 @@ class MainActivity : AppCompatActivity() {
         val progress_pion = findViewById<ProgressBar>(R.id.progressPion)
 
         reset.setOnClickListener(){
-            o1_pion.progress = 100
-            o2_pion.progress = 100
-            o3_pion.progress = 100
+            o1_pion.progress = 0
+            o2_pion.progress = 0
+            o3_pion.progress = 0
 
-            o1_poziom.progress = 100
-            o2_poziom.progress = 100
-            o3_poziom.progress = 100
+            o1_poziom.progress = 0
+            o2_poziom.progress = 0
+            o3_poziom.progress = 0
         }
         o1_poziom.setOnSeekBarChangeListener(object:OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar, progres: Int, fromUser: Boolean) {
@@ -66,11 +66,11 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar) {
-                TODO("Not yet implemented")
+
             }
 
             override fun onStopTrackingTouch(seekBar: SeekBar) {
-                TODO("Not yet implemented")
+
             }
 
         })
@@ -82,11 +82,75 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar) {
-                TODO("Not yet implemented")
+
             }
 
             override fun onStopTrackingTouch(seekBar: SeekBar) {
-                TODO("Not yet implemented")
+
+            }
+
+        })
+        o2_poziom.setOnSeekBarChangeListener(object:OnSeekBarChangeListener{
+            override fun onProgressChanged(seekBar: SeekBar, progres: Int, fromUser: Boolean) {
+                val skala = progres / 100f
+                o2.scaleX = skala
+                zmiana(progress_poziom,sumowaniePoziomu())
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar) {
+
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar) {
+
+            }
+
+        })
+        o2_pion.setOnSeekBarChangeListener(object:OnSeekBarChangeListener{
+            override fun onProgressChanged(seekBar: SeekBar, progres: Int, fromUser: Boolean) {
+                val skala = progres / 100f
+                o2.scaleX = skala
+                zmiana(progress_pion,sumowaniePionu())
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar) {
+
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar) {
+
+            }
+
+        })
+        o3_poziom.setOnSeekBarChangeListener(object:OnSeekBarChangeListener{
+            override fun onProgressChanged(seekBar: SeekBar, progres: Int, fromUser: Boolean) {
+                val skala = progres / 100f
+                o3.scaleX = skala
+                zmiana(progress_poziom,sumowaniePoziomu())
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar) {
+
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar) {
+
+            }
+
+        })
+        o3_pion.setOnSeekBarChangeListener(object:OnSeekBarChangeListener{
+            override fun onProgressChanged(seekBar: SeekBar, progres: Int, fromUser: Boolean) {
+                val skala = progres / 100f
+                o3.scaleX = skala
+                zmiana(progress_pion,sumowaniePionu())
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar) {
+
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar) {
+
             }
 
         })
