@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.SeekBar
+import android.widget.SeekBar.OnSeekBarChangeListener
 
 class MainActivity : AppCompatActivity() {
     fun sumowaniePoziomu(): Int{
@@ -42,9 +43,9 @@ class MainActivity : AppCompatActivity() {
         val o1_pion = findViewById<SeekBar>(R.id.SeekPion1)
         val o2_pion = findViewById<SeekBar>(R.id.SeekPion2)
         val o3_pion = findViewById<SeekBar>(R.id.SeekPion3)
-
+        //Deklaracja przycisku reset
         val reset = findViewById<Button>(R.id.btnReset)
-
+        //Deklaracja progressBarow
         val progress_poziom = findViewById<ProgressBar>(R.id.progressPoziom)
         val progress_pion = findViewById<ProgressBar>(R.id.progressPion)
 
@@ -57,5 +58,37 @@ class MainActivity : AppCompatActivity() {
             o2_poziom.progress = 100
             o3_poziom.progress = 100
         }
+        o1_poziom.setOnSeekBarChangeListener(object:OnSeekBarChangeListener{
+            override fun onProgressChanged(seekBar: SeekBar, progres: Int, fromUser: Boolean) {
+                val skala = progres / 100f
+                o1.scaleX = skala
+                zmiana(progress_poziom,sumowaniePoziomu())
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar) {
+                TODO("Not yet implemented")
+            }
+
+        })
+        o1_pion.setOnSeekBarChangeListener(object:OnSeekBarChangeListener{
+            override fun onProgressChanged(seekBar: SeekBar, progres: Int, fromUser: Boolean) {
+                val skala = progres / 100f
+                o1.scaleX = skala
+                zmiana(progress_pion,sumowaniePionu())
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar) {
+                TODO("Not yet implemented")
+            }
+
+        })
     }
 }
